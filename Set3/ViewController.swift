@@ -20,7 +20,7 @@ class ViewController: UIViewController {
         
     }
     
-     @IBOutlet weak var mainView: UIView!
+  
     
 
     var grid = Grid(layout: Grid.Layout.aspectRatio(0.7) )
@@ -32,9 +32,7 @@ class ViewController: UIViewController {
         let cellSize = grid.cellSize
          print("cell count \(gridN) \n cell Rect  \(grid2) \n dimension \(dimension) \ncell Size \(cellSize)")
         
-        let mainViewFrame = mainView.frame
-        let mainViewBounds = mainView.bounds
-        
+
         let cardSubView = CardView()
         var cardRect = CGRect(x: 108.0, y: 25.8, width: 50.0, height: 71.4)
         cardSubView.frame = cardRect
@@ -42,12 +40,7 @@ class ViewController: UIViewController {
         // self.view = view
         view.addSubview(cardSubView)
        
-        
-        
-        
-     
-        
-     //   print("\n mainView frame \(mainViewFrame),\n mainView bounds \(mainViewBounds) ")
+    
     }
     
 
