@@ -14,6 +14,8 @@
 		C4BE72F2201D4FEA002B5627 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4BE72F1201D4FEA002B5627 /* Assets.xcassets */; };
 		C4BE72F5201D4FEA002B5627 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4BE72F3201D4FEA002B5627 /* LaunchScreen.storyboard */; };
 		C4BE72FD201D528E002B5627 /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BE72FC201D528E002B5627 /* Grid.swift */; };
+		C4ECD48F201F8EAA0066A41A /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4ECD48E201F8EA90066A41A /* Card.swift */; };
+		C4ECD491201F8EC70066A41A /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4ECD490201F8EC70066A41A /* Deck.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		C4BE72F4201D4FEA002B5627 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C4BE72F6201D4FEA002B5627 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C4BE72FC201D528E002B5627 /* Grid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
+		C4ECD48E201F8EA90066A41A /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		C4ECD490201F8EC70066A41A /* Deck.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +65,8 @@
 				C4BE72EA201D4FE9002B5627 /* AppDelegate.swift */,
 				C4BE72EC201D4FE9002B5627 /* ViewController.swift */,
 				C496D896201E5627001F0ABE /* CardView.swift */,
+				C4ECD48E201F8EA90066A41A /* Card.swift */,
+				C4ECD490201F8EC70066A41A /* Deck.swift */,
 				C4BE72EE201D4FEA002B5627 /* Main.storyboard */,
 				C4BE72F1201D4FEA002B5627 /* Assets.xcassets */,
 				C4BE72F3201D4FEA002B5627 /* LaunchScreen.storyboard */,
@@ -142,8 +148,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4ECD491201F8EC70066A41A /* Deck.swift in Sources */,
 				C4BE72ED201D4FE9002B5627 /* ViewController.swift in Sources */,
 				C4BE72EB201D4FE9002B5627 /* AppDelegate.swift in Sources */,
+				C4ECD48F201F8EAA0066A41A /* Card.swift in Sources */,
 				C496D897201E5628001F0ABE /* CardView.swift in Sources */,
 				C4BE72FD201D528E002B5627 /* Grid.swift in Sources */,
 			);
