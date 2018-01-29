@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C496D897201E5628001F0ABE /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C496D896201E5627001F0ABE /* CardView.swift */; };
 		C4BE72EB201D4FE9002B5627 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BE72EA201D4FE9002B5627 /* AppDelegate.swift */; };
 		C4BE72ED201D4FE9002B5627 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BE72EC201D4FE9002B5627 /* ViewController.swift */; };
 		C4BE72F0201D4FEA002B5627 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4BE72EE201D4FEA002B5627 /* Main.storyboard */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C496D896201E5627001F0ABE /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		C4BE72E7201D4FE9002B5627 /* Set3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Set3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4BE72EA201D4FE9002B5627 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C4BE72EC201D4FE9002B5627 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 			children = (
 				C4BE72EA201D4FE9002B5627 /* AppDelegate.swift */,
 				C4BE72EC201D4FE9002B5627 /* ViewController.swift */,
+				C496D896201E5627001F0ABE /* CardView.swift */,
 				C4BE72EE201D4FEA002B5627 /* Main.storyboard */,
 				C4BE72F1201D4FEA002B5627 /* Assets.xcassets */,
 				C4BE72F3201D4FEA002B5627 /* LaunchScreen.storyboard */,
@@ -141,6 +144,7 @@
 			files = (
 				C4BE72ED201D4FE9002B5627 /* ViewController.swift in Sources */,
 				C4BE72EB201D4FE9002B5627 /* AppDelegate.swift in Sources */,
+				C496D897201E5628001F0ABE /* CardView.swift in Sources */,
 				C4BE72FD201D528E002B5627 /* Grid.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
