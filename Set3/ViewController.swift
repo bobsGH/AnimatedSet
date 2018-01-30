@@ -88,13 +88,14 @@ class ViewController: UIViewController {
             cardView.frame = cardRect!
             cardView.backgroundColor = .green
             roundCornor(cardView)
+            
             //cardView = cardRect
            // print("cardView frame \(cardView.frame)\n cardView \(cardView)\n")
           
             
             containerView.addSubview(cardView)
-            
         }
+        print("gridCellsize = \(grid[0]?.size)")
     }
 
 }
