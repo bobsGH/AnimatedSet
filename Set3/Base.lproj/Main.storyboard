@@ -29,6 +29,9 @@
                                         <state key="normal" title="New Game">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="newGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7BY-7F-FdG"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="diF-NL-beY">
                                         <rect key="frame" x="164" y="0.0" width="21" height="33"/>
@@ -44,6 +47,9 @@
                                         <state key="normal" title="Add Three Cards">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="addCards:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qxe-MQ-gjf"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -69,6 +75,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="containerView" destination="nYe-dF-HPx" id="wc5-Yn-IVO"/>
+                        <outlet property="score" destination="diF-NL-beY" id="m5q-ON-Nnp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

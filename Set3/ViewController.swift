@@ -20,10 +20,31 @@ class ViewController: UIViewController {
         
     }
     
-  
+    @IBOutlet weak var score: UILabel!
     
-
+  
+    @IBAction func newGame(_ sender: UIButton) {
+    }
+    
+    
+    @IBAction func addCards(_ sender: UIButton) {
+    }
+    
+    
+    @IBOutlet weak var containerView: UIView!
+    
+    
+    
+    
     var grid = Grid(layout: Grid.Layout.aspectRatio(0.7) )
+    
+    func roundCornor(_ object: UIView) {
+        object.layer.backgroundColor = UIColor.white.cgColor
+        object.layer.borderWidth = 2.0
+        object.layer.cornerRadius = 8.0
+    }
+    
+    
     
     func tstGrid() {
         let gridN = grid.cellCount
@@ -32,13 +53,23 @@ class ViewController: UIViewController {
         let cellSize = grid.cellSize
          print("cell count \(gridN) \n cell Rect  \(grid2) \n dimension \(dimension) \ncell Size \(cellSize)")
         
-
+        var containerSize = containerView.frame
+        print("container size \(containerSize)")
+        
         let cardSubView = CardView()
-        var cardRect = CGRect(x: 108.0, y: 25.8, width: 50.0, height: 71.4)
+        var cardRect = CGRect(x: 108.0, y: 0.0, width: 50.0, height: 71.4)
+        //roundCornor(cardSubView)
+        
         cardSubView.frame = cardRect
         cardSubView.backgroundColor = .yellow
+        
+        
+        roundCornor(score)
+        
+        
         // self.view = view
-        view.addSubview(cardSubView)
+       // view.addSubview(cardSubView)
+        containerView.addSubview(cardSubView)
        
     
     }
