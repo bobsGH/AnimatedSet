@@ -57,9 +57,9 @@
                                     <constraint firstItem="AlF-wI-AfD" firstAttribute="width" secondItem="93b-aX-0Kx" secondAttribute="width" id="lHP-DQ-tDX"/>
                                 </constraints>
                             </stackView>
-                            <view contentMode="scaleToFill" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="nYe-dF-HPx">
-                                <rect key="frame" x="16" y="20" width="343" height="581"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <view contentMode="scaleToFill" verticalHuggingPriority="750" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="nYe-dF-HPx">
+                                <rect key="frame" x="16" y="20" width="343" height="589"/>
+                                <viewLayoutGuide key="safeArea" id="lQ5-6m-8wb"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -67,7 +67,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nYe-dF-HPx" secondAttribute="trailing" constant="16" id="HTF-sO-NaW"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="AlF-wI-AfD" secondAttribute="bottom" priority="250" constant="17" id="J1g-Tk-5Ef"/>
                             <constraint firstItem="nYe-dF-HPx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="J5M-6d-r8E"/>
-                            <constraint firstItem="diF-NL-beY" firstAttribute="top" secondItem="nYe-dF-HPx" secondAttribute="bottom" priority="250" constant="16" id="TiX-cj-Wfx"/>
+                            <constraint firstItem="Grf-Pn-xjS" firstAttribute="top" secondItem="nYe-dF-HPx" secondAttribute="bottom" constant="8" symbolic="YES" id="TSN-ch-kjH"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="AlF-wI-AfD" secondAttribute="trailing" constant="10" id="TnJ-Z1-sW2"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Grf-Pn-xjS" secondAttribute="bottom" constant="17" id="bev-OP-XhE"/>
                             <constraint firstItem="nYe-dF-HPx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="dxz-ga-e9V"/>
