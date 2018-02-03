@@ -13,17 +13,15 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-       // grid.frame = CGRect(x: 8, y: 8, width: 200, height: 250)
-       // grid.frame = containerView.frame
+        deck.makeDeck()
+        deck.draw(12)
         grid.frame = containerView.bounds
-        print("containerView.frame \(containerView.frame)")
-        grid.cellCount = 12
+        grid.cellCount = deck.cardsInPlay.count
     
-        
-       // tstGrid()
         paintCards()
-        
     }
+    
+    var deck = Deck()
     
     @IBOutlet weak var score: UILabel!
     
@@ -40,7 +38,6 @@ class ViewController: UIViewController {
     
     
     
-    
     var grid = Grid(layout: Grid.Layout.aspectRatio(0.7) )
     
     func roundCornor(_ object: UIView) {
@@ -49,54 +46,57 @@ class ViewController: UIViewController {
         object.layer.cornerRadius = 8.0
     }
     
- 
-    
-    func tstGrid() {
-        let gridN = grid.cellCount
-        let grid2 = grid[2]
-        let dimension = grid.dimensions  // rowCount, column dount
-        let cellSize = grid.cellSize
-        print("grid.cellCount \(gridN) \n grid2  \(grid2) \n grid.dimension \(dimension) \n grid.cellSize \(cellSize)")
-        
-        var containerSize = containerView.frame
-        //print("container size \(containerSize)")
-        
-       // print("grid2 \(grid2)")
-        
-        let cardSubView = CardView()
-        var cardRect = CGRect(x: 108.0, y: 0.0, width: 50.0, height: 71.4)
-        //roundCornor(cardSubView)
-        
-        cardSubView.frame = cardRect
-        cardSubView.backgroundColor = .yellow
-        
-        roundCornor(score)
-        
-        // self.view = view
-       // view.addSubview(cardSubView)
-        containerView.addSubview(cardSubView)
-    }
- 
     
     func paintCards() {
-        
         for i in 0..<grid.cellCount  {
             var cardView = CardView()
-          
-            var cardRect = grid[i]
-         
-            cardView.frame = cardRect!
-            cardView.backgroundColor = .green
-            roundCornor(cardView)
-            
-            //cardView = cardRect
-           // print("cardView frame \(cardView.frame)\n cardView \(cardView)\n")
-          
-            
-            containerView.addSubview(cardView)
-        }
-        print("gridCellsize = \(grid[0]?.size)")
-    }
+            if let cardRect = grid[i]{
+                cardView.frame = cardRect
+                roundCornor(cardView)
+                containerView.addSubview(cardView)
+                cardView.backgroundColor = UIColor.white
+                
+            }
 
-}
+        }
+       // print("subViews \(containerView.subviews[1])")   //
+        containerView.subviews[1].layer.borderColor = UIColor.green.cgColor
+        print(" card in play count \(deck.cardsInPlay.count), card \(deck.cardsInPlay[1])")
+        
+        
+        
+        
+    } // end paintCards()
+
+}// EOF
+
+/*
+ func tstGrid() {
+ let gridN = grid.cellCount
+ let grid2 = grid[2]
+ let dimension = grid.dimensions  // rowCount, column dount
+ let cellSize = grid.cellSize
+ print("grid.cellCount \(gridN) \n grid2  \(grid2) \n grid.dimension \(dimension) \n grid.cellSize \(cellSize)")
+ 
+ var containerSize = containerView.frame
+ //print("container size \(containerSize)")
+ 
+ // print("grid2 \(grid2)")
+ 
+ let cardSubView = CardView()
+ var cardRect = CGRect(x: 108.0, y: 0.0, width: 50.0, height: 71.4)
+ //roundCornor(cardSubView)
+ 
+ cardSubView.frame = cardRect
+ cardSubView.backgroundColor = .yellow
+ 
+ roundCornor(score)
+ 
+ // self.view = view
+ // view.addSubview(cardSubView)
+ containerView.addSubview(cardSubView)
+ }
+ 
+ 
+ */
 
