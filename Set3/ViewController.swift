@@ -16,7 +16,7 @@ class ViewController: UIViewController {
         deck.makeDeck()
         deck.draw(12)
         grid.frame = containerView.bounds
-        grid.cellCount = deck.cardsInPlay.count
+        
     
         paintCards()
     }
@@ -48,14 +48,17 @@ class ViewController: UIViewController {
     
     
     func paintCards() {
-        for i in 0..<grid.cellCount  {
+        grid.cellCount = deck.cardsInPlay.count
+      //  for i in 0..<grid.cellCount  {
+        for i in 0..<deck.cardsInPlay.count {
             var cardView = CardView()
             if let cardRect = grid[i]{
                 cardView.frame = cardRect
                 roundCornor(cardView)
                 containerView.addSubview(cardView)
                 cardView.backgroundColor = UIColor.white
-                
+              //  cardView.pipColor = deck.cardsInPlay[i].cardColor.rawValue
+                cardView.card = deck.cardsInPlay[i]
             }
 
         }
