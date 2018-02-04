@@ -11,15 +11,22 @@ import UIKit
 class CardView: UIView {
     
     var card: Card!
+    var path: UIBezierPath!
+    var circlePath: UIBezierPath = UIBezierPath()
+
     
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
     
     override func draw(_ rect: CGRect) {
         // **************** Drawing code **********************
+        
+        
+        
         let bounds = self.bounds
         
-         let circlePath = UIBezierPath()
+       
+     
         
         if card != nil {
             switch card.cardColor {
@@ -28,21 +35,44 @@ class CardView: UIView {
                 case .blue: print("blue")
             }
             
-            // test code
-            var centerPoint = CGPoint(x: bounds.midX, y: bounds.midY )
-            circlePath.addArc(withCenter: centerPoint,
-                              radius: 10 ,   // bounds.width
-                startAngle: 0,
-                endAngle: CGFloat.pi * 2,
-                clockwise: true)
-            circlePath.stroke()
-            //end test code 
+            switch card.cardSymbol {
+                case .circle : path = circlePath
+                case .square : print(" ")
+                case .triangle: print(" ")
+            }
+            
+            switch card.cardShade {
+                case .blank: print(" ")
+                case .fill: print(" ")
+                case .light: print(" ")
+            }
   
         } // end if != nil
+        
+        paintCard()
+        
+       
 
-    
+
+      
     }
-    
+    func paintCard() {
+        
+        var centerPoint = CGPoint(x: bounds.midX, y: bounds.midY )
+        
+         // test code
+        circlePath.addArc(withCenter: centerPoint,
+            radius: 10 ,   // bounds.width
+            startAngle: 0,
+            endAngle: CGFloat.pi * 2,
+            clockwise: true)
+        
+        if path != nil {
+            print("path no nil")
+            path.stroke()
+        }
+    }
+    //end test code
  
 
 }
