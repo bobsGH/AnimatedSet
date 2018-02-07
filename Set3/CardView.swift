@@ -15,12 +15,16 @@ class CardView: UIView {
     
     
     var fill = false
+    var strip = false
+    
     var radius: CGFloat {
         get {
             return bounds.height * 0.125
         }
     }// radius
-    
+    let topOffset: CGFloat =  -0.3
+    let bottomOffset: CGFloat =  0.3
+   
     
     
     // Only override draw() if you perform custom drawing.
@@ -28,7 +32,11 @@ class CardView: UIView {
     
     override func draw(_ rect: CGRect) {
         // **************** Drawing code **********************
+        
+        
        
+        var topTransform = CGAffineTransform(translationX: 0.0, y: bounds.height * topOffset )
+        let bottomTransform = CGAffineTransform(translationX: 0.0, y: bounds.height * bottomOffset * 2 )
        
         if card != nil {
             switch card.cardColor {
@@ -49,19 +57,59 @@ class CardView: UIView {
             switch card.cardShade {
                 case .blank:  break
                 case .fill:   if path != nil { fill = true }
-                case .light:  addStripPath()
-                              path.addClip()
+                case .light:  addStripPath() //strip = true
+                
             }
+            
+            switch card.cardPip {
+                case .one:  path.stroke()
+                            if fill { path.fill()}
+                
+                
+                case .two:  path.apply(topTransform)
+                
+                            if fill { path.fill()}
+                         //   if strip {addStrip()}
+                            path.stroke()
+                
+                            path.apply(bottomTransform)
+                            if fill { path.fill()}
+                          //  if strip {addStrip(); print("two") }
+                            path.stroke()
+                
+            case .three:  path.stroke()
+                          if fill { path.fill()}
+                          //if strip {addStrip()}
+            
+                          path.apply(topTransform)
+                          path.stroke()
+                          if fill { path.fill()}
+                      //    if strip {addStrip()}
+            
+                          path.apply(bottomTransform)
+                          path.stroke()
+                          if fill { path.fill()}
+                      //    if strip {addStrip();  print("three")}
+                
+            
+            }// end switch
+            
   
-        } // end if != nil
+        } // end if card != nil
         
-        if path != nil {
-            path.stroke()
-            if fill { path.fill()}
-        } // path
-    
+        
       
     } // end draw()
+    
+//    func addStrip() {
+//        if strip {
+//           // print("strip")
+//            addStripPath()
+//            path.addClip()
+//           // path.stroke()
+//
+//        }
+   //}
     
     func makeCirclePath() -> UIBezierPath {
         var circlePath = UIBezierPath()
@@ -106,21 +154,20 @@ class CardView: UIView {
         return trianglePath
     }
     
-    let noStrips: CGFloat = 3.0 //  * 2
+    let noStrips: CGFloat = 3.0 //  will twice this many strips
     
     func addStripPath() {
         var str = bounds.minY
         var space: CGFloat = radius / noStrips
         
-        while str < bounds.maxY {
+        
+        while space < bounds.maxY {  // was str
             path.move(to: CGPoint(x: bounds.minX, y: bounds.minY + space))
-            path.addLine(to: CGPoint(x: self.bounds.maxX, y: bounds.minY + space)) // (x: circlePath.bounds.maxX, y: bounds.minY + space))
-            //   circlePath.addClip()
-            // circlePath.stroke()
+            path.addLine(to: CGPoint(x: self.bounds.maxX, y: bounds.minY + space)) 
             space += radius / noStrips
-            str += radius / noStrips
+           // str += radius / noStrips
         }
-    } //  end addstrip()
+    } //  end addstripPath()
     
 } // EOF
 
