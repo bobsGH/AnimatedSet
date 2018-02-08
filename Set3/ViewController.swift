@@ -31,6 +31,16 @@ class ViewController: UIViewController {
     
     
     @IBAction func addCards(_ sender: UIButton) {
+        deck.draw(3)
+        paintCards()
+        
+      
+      //  if deck.cardsInPlay.count >= location.count {
+       //     sender.isEnabled = false
+     //   }
+        
+     //   view.setNeedsDisplay()
+      //  view.setNeedsLayout() // ?
     }
     
     
@@ -48,6 +58,12 @@ class ViewController: UIViewController {
     
     
     func paintCards() {
+       
+      var subViews = containerView.subviews
+        for sub in subViews {
+            sub.removeFromSuperview()
+        }
+        
         grid.cellCount = deck.cardsInPlay.count
       //  for i in 0..<grid.cellCount  {
         for i in 0..<deck.cardsInPlay.count {
@@ -65,7 +81,7 @@ class ViewController: UIViewController {
        // print("subViews \(containerView.subviews[1])")   //
         containerView.subviews[1].layer.borderColor = UIColor.green.cgColor
         print(" card in play count \(deck.cardsInPlay.count), card \(deck.cardsInPlay[1])")
-        
+       // view.setNeedsDisplay()
         
         
         
