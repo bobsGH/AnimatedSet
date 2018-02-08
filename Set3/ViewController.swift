@@ -80,7 +80,7 @@ class ViewController: UIViewController {
         }
        // print("subViews \(containerView.subviews[1])")   //
         containerView.subviews[1].layer.borderColor = UIColor.green.cgColor
-        print(" card in play count \(deck.cardsInPlay.count), card \(deck.cardsInPlay[1])")
+       // print(" card in play count \(deck.cardsInPlay.count), card \(deck.cardsInPlay[1])")
        // view.setNeedsDisplay()
         
         
