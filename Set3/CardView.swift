@@ -82,7 +82,7 @@ class CardView: UIView {
                         if stripPath != nil {
                                let new = UIBezierPath(cgPath: save)
                                path.append(new)
-                            print("two striped ")
+                          //  print("two striped ")
                                 path.addClip()
                                 stripPath.stroke()
                                 path.stroke()
@@ -92,8 +92,10 @@ class CardView: UIView {
                 
                 case .three:  path.stroke()
                                 if fill { path.fill()}
+                                let middle = path.cgPath
                 
                                 path.apply(topTransform)
+                                let top = path.cgPath
                                 path.stroke()
                                 if fill { path.fill()}
                 
@@ -101,10 +103,17 @@ class CardView: UIView {
                                 path.stroke()
                                 if fill { path.fill()}
                 
-                      //    if strip {addStrip()}
+                                if stripPath != nil {
+                                    let newTop = UIBezierPath(cgPath: top)
+                                    path.append(newTop)
+                                    let newMiddle = UIBezierPath(cgPath: middle)
+                                    path.append(newMiddle)
+                            //print("three striped ")
+                                    path.addClip()
+                                    stripPath.stroke()
+                                    path.stroke()
+                                } // end if stripPath
             
-                
-                      //    if strip {addStrip();  print("three")}
                 
             
             }// end switch
