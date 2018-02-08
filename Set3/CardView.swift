@@ -12,6 +12,7 @@ class CardView: UIView {
     
     var card: Card!
     var path: UIBezierPath!
+    var stripPath: UIBezierPath!
     
     
     var fill = false
@@ -57,38 +58,52 @@ class CardView: UIView {
             switch card.cardShade {
                 case .blank:  break
                 case .fill:   if path != nil { fill = true }
-                case .light:  addStripPath() //strip = true
+                case .light:  stripPath = addStripPath() //strip = true
                 
             }
             
             switch card.cardPip {
                 case .one:  path.stroke()
                             if fill { path.fill()}
+                            if stripPath != nil {
+                                path.addClip()
+                                stripPath.stroke()
+                            }
                 
-                
-                case .two:  path.apply(topTransform)
-                
-                            if fill { path.fill()}
-                         //   if strip {addStrip()}
-                            path.stroke()
-                
-                            path.apply(bottomTransform)
-                            if fill { path.fill()}
-                          //  if strip {addStrip(); print("two") }
-                            path.stroke()
-                
-            case .three:  path.stroke()
-                          if fill { path.fill()}
-                          //if strip {addStrip()}
+            case .two:   path.apply(topTransform)
+                         path.stroke()
+                         if fill { path.fill()}
             
-                          path.apply(topTransform)
-                          path.stroke()
-                          if fill { path.fill()}
+                        let save = path.cgPath
+                        path.apply(bottomTransform)
+                        path.stroke()
+            
+                        if fill { path.fill()}
+                        if stripPath != nil {
+                               let new = UIBezierPath(cgPath: save)
+                               path.append(new)
+                            print("two striped ")
+                                path.addClip()
+                                stripPath.stroke()
+                                path.stroke()
+                        }
+                
+
+                
+                case .three:  path.stroke()
+                                if fill { path.fill()}
+                
+                                path.apply(topTransform)
+                                path.stroke()
+                                if fill { path.fill()}
+                
+                                path.apply(bottomTransform)
+                                path.stroke()
+                                if fill { path.fill()}
+                
                       //    if strip {addStrip()}
             
-                          path.apply(bottomTransform)
-                          path.stroke()
-                          if fill { path.fill()}
+                
                       //    if strip {addStrip();  print("three")}
                 
             
@@ -156,20 +171,57 @@ class CardView: UIView {
     
     let noStrips: CGFloat = 3.0 //  will twice this many strips
     
-    func addStripPath() {
-        var str = bounds.minY
-        var space: CGFloat = radius / noStrips
+    func addStripPath() -> UIBezierPath {
+        var y = bounds.minY
+        let space: CGFloat = radius / noStrips
+        var stripPath = UIBezierPath()
         
-        
-        while space < bounds.maxY {  // was str
-            path.move(to: CGPoint(x: bounds.minX, y: bounds.minY + space))
-            path.addLine(to: CGPoint(x: self.bounds.maxX, y: bounds.minY + space)) 
-            space += radius / noStrips
-           // str += radius / noStrips
+        while y < bounds.maxY {  // was str
+            stripPath.move(to: CGPoint(x: bounds.minX, y: y ))
+            stripPath.addLine(to: CGPoint(x: self.bounds.maxX, y: y))
+            //space += radius / noStrips
+            y += space
         }
+        return stripPath
     } //  end addstripPath()
     
 } // EOF
+
+
+//var top = path!
+// var bottom = path!
+
+// path.apply(topTransform)
+// top.stroke()
+//  bottom.apply(bottomTransform)
+//bottom.stroke()
+//  top.append(bottom)
+//    top.stroke()
+//                            path.removeAllPoints()
+//                            path = top
+//                            path.append(bottom!)
+//                            path.stroke()
+//                            if fill { path.fill()}
+
+// path.apply(topTransform)
+//  path.stroke()
+// if fill { path.fill()}
+// if stripPath != nil {
+//  path.addClip()
+//  stripPath.stroke()
+// }
+
+
+//copy?.apply(bottomTransform)
+//path.append(copy!)
+// path.stroke()
+
+
+
+//                            if stripPath != nil {
+//                                path.addClip()
+//                                stripPath.stroke()
+//                            }
 
 /*
  func paintCard() {
