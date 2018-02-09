@@ -15,6 +15,8 @@ class CardView: UIView {
     var stripPath: UIBezierPath!
     
     
+  
+    
     var fill = false
     var strip = false
     
@@ -34,6 +36,7 @@ class CardView: UIView {
     override func draw(_ rect: CGRect) {
         // **************** Drawing code **********************
         
+       
         
        
         var topTransform = CGAffineTransform(translationX: 0.0, y: bounds.height * topOffset )

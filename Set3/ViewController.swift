@@ -21,6 +21,13 @@ class ViewController: UIViewController {
         paintCards()
     }
     
+    
+    // test
+    func tap(){
+        print("cardview taped")
+    }
+    
+    
     var deck = Deck()
     
     @IBOutlet weak var score: UILabel!
@@ -33,18 +40,18 @@ class ViewController: UIViewController {
     @IBAction func addCards(_ sender: UIButton) {
         deck.draw(3)
         paintCards()
-        
-      
-      //  if deck.cardsInPlay.count >= location.count {
-       //     sender.isEnabled = false
-     //   }
-        
-     //   view.setNeedsDisplay()
-      //  view.setNeedsLayout() // ?
     }
     
+    var tapReconizer: UITapGestureRecognizer!
     
-    @IBOutlet weak var containerView: UIView!
+    
+    @IBOutlet weak var containerView: UIView! {
+        didSet {
+            print("contaerView didset")
+            tapReconizer = UITapGestureRecognizer(target: self, action: #selector(selectCard) )
+            containerView.addGestureRecognizer(tapReconizer)  // works
+        }
+    }
     
     
     
@@ -56,6 +63,14 @@ class ViewController: UIViewController {
         object.layer.cornerRadius = 8.0
     }
     
+    // test
+   // let tapReconizer = UITapGestureRecognizer(target: self, action: #selector(selectCard) )
+    //let tapReconizer = UIGestureRecognizer(target: self, action: #selector(selectCard) )
+    @ objc func selectCard(){
+        print("selectCard ")
+    }
+    
+   //   @IBOutlet weak var cardView: CardView! = CardView()
     
     func paintCards() {
        
@@ -65,9 +80,9 @@ class ViewController: UIViewController {
         }
         
         grid.cellCount = deck.cardsInPlay.count
-      //  for i in 0..<grid.cellCount  {
         for i in 0..<deck.cardsInPlay.count {
-            var cardView = CardView()
+           
+            var  cardView = CardView()
             if let cardRect = grid[i]{
                 cardView.frame = cardRect
                 roundCornor(cardView)
@@ -76,8 +91,10 @@ class ViewController: UIViewController {
               //  cardView.pipColor = deck.cardsInPlay[i].cardColor.rawValue
                 cardView.card = deck.cardsInPlay[i]
             }
-
-        }
+            
+         //   containerView.subviews[i].addGestureRecognizer(tapReconizer)
+            
+        } // end for
        // print("subViews \(containerView.subviews[1])")   //
         containerView.subviews[1].layer.borderColor = UIColor.green.cgColor
        // print(" card in play count \(deck.cardsInPlay.count), card \(deck.cardsInPlay[1])")
