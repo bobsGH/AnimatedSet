@@ -15,7 +15,9 @@ class CardView: UIView {
     var stripPath: UIBezierPath!
     
     
-  
+  //  var vc: UIViewController!
+   // var tapRec: UITapGestureRecognizer!
+    
     
     var fill = false
     var strip = false
@@ -36,8 +38,10 @@ class CardView: UIView {
     override func draw(_ rect: CGRect) {
         // **************** Drawing code **********************
         
-       
+       //self.addGestureRecognizer()
+      //  print("tao rec in card view\(tapRec)")
         
+       // addGestureRecognizer(tapRec)
        
         var topTransform = CGAffineTransform(translationX: 0.0, y: bounds.height * topOffset )
         let bottomTransform = CGAffineTransform(translationX: 0.0, y: bounds.height * bottomOffset * 2 )
