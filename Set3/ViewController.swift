@@ -20,9 +20,6 @@ class ViewController: UIViewController {
     } // viewDidLoad
     
     
-
-    
-    
     var deck = Deck()
     
     @IBOutlet weak var score: UILabel!
@@ -39,18 +36,8 @@ class ViewController: UIViewController {
     
     var tapReconizer: UITapGestureRecognizer!
     
+    @IBOutlet weak var containerView: UIView! // {
 
-    @IBOutlet weak var containerView: UIView! {
-        didSet {
-            
- //           tapReconizer = UITapGestureRecognizer(target: self, action: #selector(selectCard(recongizer: )) )
-            
-       //     containerView.addGestureRecognizer(tapReconizer)  // works ----------
-            
-        } // end didset
-    } // end containerView
-    
-    
     var grid = Grid(layout: Grid.Layout.aspectRatio(0.7) )
     
     func roundCornor(_ object: UIView) {
@@ -60,17 +47,14 @@ class ViewController: UIViewController {
     }
     
  
-    
     @objc func selectCard(recongizer: UITapGestureRecognizer){
         print("\n selectCard ")
         switch recongizer.state {
-            case.ended: 
+            case.ended:
                 print("recongizer.view tag \(recongizer.view?.tag)")
             default: break
         }
-    //  print("tapped view \(recongizer.view)")
-    }
-    
+    } // end sellectedCard()
     
     
     func paintCards() {
@@ -84,8 +68,7 @@ class ViewController: UIViewController {
         
         for i in 0..<deck.cardsInPlay.count {
             
-            tapReconizer = UITapGestureRecognizer(target: self, action: #selector(selectCard(recongizer: )) )
-           
+            tapReconizer = UITapGestureRecognizer(target: self, action: #selector(selectCard(recongizer: )) ) // for each cardView
             var  cardView = CardView()
             cardView = CardView()
             if let cardRect = grid[i]{
@@ -98,20 +81,25 @@ class ViewController: UIViewController {
                 cardView.addGestureRecognizer(tapReconizer)
                 containerView.addSubview(cardView)
                 cardView.tag = i
-               // print("i \(i) cardview tag \(cardView.tag)")
-            }
-           
+            } // end if
         } // end for
         
-        
-        containerView.subviews[0].layer.borderColor = UIColor.green.cgColor
-        print("paint subview count \(containerView.subviews.count)")
-
+        containerView.subviews[0].layer.borderColor = UIColor.green.cgColor // test
     } // end paintCards()
 
 }// EOF
 
 /*
+ 
+ //        didSet {
+ //
+ // //           tapReconizer = UITapGestureRecognizer(target: self, action: #selector(selectCard(recongizer: )) )
+ //
+ //       //     containerView.addGestureRecognizer(tapReconizer)  // works ----------
+ //
+ //        } // end didset
+ //    } // end containerView
+ //
  
  containerView.subviews[3].addGestureRecognizer(tapReconizer)
  containerView.subviews[0].addGestureRecognizer(tapReconizer)

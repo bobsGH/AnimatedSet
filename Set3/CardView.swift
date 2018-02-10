@@ -14,11 +14,6 @@ class CardView: UIView {
     var path: UIBezierPath!
     var stripPath: UIBezierPath!
     
-    
-  //  var vc: UIViewController!
-   // var tapRec: UITapGestureRecognizer!
-    
-    
     var fill = false
     var strip = false
     
@@ -27,22 +22,16 @@ class CardView: UIView {
             return bounds.height * 0.125
         }
     }// radius
+    
     let topOffset: CGFloat =  -0.3
     let bottomOffset: CGFloat =  0.3
    
-    
-    
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
     
     override func draw(_ rect: CGRect) {
         // **************** Drawing code **********************
         
-       //self.addGestureRecognizer()
-      //  print("tao rec in card view\(tapRec)")
-        
-       // addGestureRecognizer(tapRec)
-       
         var topTransform = CGAffineTransform(translationX: 0.0, y: bounds.height * topOffset )
         let bottomTransform = CGAffineTransform(translationX: 0.0, y: bounds.height * bottomOffset * 2 )
        
@@ -77,7 +66,7 @@ class CardView: UIView {
                                 stripPath.stroke()
                             }
                 
-            case .two:   path.apply(topTransform)
+                case .two:   path.apply(topTransform)
                          path.stroke()
                          if fill { path.fill()}
             
@@ -89,13 +78,10 @@ class CardView: UIView {
                         if stripPath != nil {
                                let new = UIBezierPath(cgPath: save)
                                path.append(new)
-                          //  print("two striped ")
                                 path.addClip()
                                 stripPath.stroke()
                                 path.stroke()
                         }
-                
-
                 
                 case .three:  path.stroke()
                                 if fill { path.fill()}
@@ -115,32 +101,18 @@ class CardView: UIView {
                                     path.append(newTop)
                                     let newMiddle = UIBezierPath(cgPath: middle)
                                     path.append(newMiddle)
-                            //print("three striped ")
                                     path.addClip()
                                     stripPath.stroke()
                                     path.stroke()
                                 } // end if stripPath
+            }// end switch on pip
             
-                
-            
-            }// end switch
-            
-  
         } // end if card != nil
         
         
       
     } // end draw()
     
-//    func addStrip() {
-//        if strip {
-//           // print("strip")
-//            addStripPath()
-//            path.addClip()
-//           // path.stroke()
-//
-//        }
-   //}
     
     func makeCirclePath() -> UIBezierPath {
         var circlePath = UIBezierPath()
@@ -159,7 +131,6 @@ class CardView: UIView {
             return CGPoint(x: bounds.midX - radius,  y: bounds.midY - radius )
         }
     }
-            
     
     
     func makeSquarePath() -> UIBezierPath {
@@ -192,10 +163,9 @@ class CardView: UIView {
         let space: CGFloat = radius / noStrips
         var stripPath = UIBezierPath()
         
-        while y < bounds.maxY {  // was str
+        while y < bounds.maxY {  
             stripPath.move(to: CGPoint(x: bounds.minX, y: y ))
             stripPath.addLine(to: CGPoint(x: self.bounds.maxX, y: y))
-            //space += radius / noStrips
             y += space
         }
         return stripPath
@@ -203,6 +173,27 @@ class CardView: UIView {
     
 } // EOF
 
+/*
+ 
+ //  var vc: UIViewController!
+ // var tapRec: UITapGestureRecognizer!
+ 
+ //self.addGestureRecognizer()
+ //  print("tao rec in card view\(tapRec)")
+ 
+ // addGestureRecognizer(tapRec)
+ */
+
+
+//    func addStrip() {
+//        if strip {
+//           // print("strip")
+//            addStripPath()
+//            path.addClip()
+//           // path.stroke()
+//
+//        }
+//}
 
 //var top = path!
 // var bottom = path!
