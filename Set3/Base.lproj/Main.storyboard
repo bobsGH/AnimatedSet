@@ -78,7 +78,7 @@
                     </view>
                     <connections>
                         <outlet property="containerView" destination="nYe-dF-HPx" id="wc5-Yn-IVO"/>
-                        <outlet property="score" destination="diF-NL-beY" id="m5q-ON-Nnp"/>
+                        <outlet property="scoreLabel" destination="diF-NL-beY" id="W6T-iN-h32"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

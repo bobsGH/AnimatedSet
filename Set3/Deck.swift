@@ -61,7 +61,7 @@ struct Deck {
             if sorted.count > 2 { draw(3) }
             return true
         }
-        return false
+        return true // false
     }
     
     

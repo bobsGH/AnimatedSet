@@ -17,13 +17,22 @@ class ViewController: UIViewController {
         deck.draw(12)
         grid.frame = containerView.bounds
         paintCards()
+        score = 0
     } // viewDidLoad
     
     
     var deck = Deck()
     
-    @IBOutlet weak var score: UILabel!
+
     
+    @IBOutlet weak var scoreLabel: UILabel!
+    
+    var score: Int = 0 {
+        didSet {
+            scoreLabel.text = "\(score)"
+        }
+    }
+
   
     @IBAction func newGame(_ sender: UIButton) {
     }
@@ -46,14 +55,35 @@ class ViewController: UIViewController {
         object.layer.cornerRadius = 8.0
     }
     
- 
+    var selected: [Int] = []
+    
     @objc func selectCard(recongizer: UITapGestureRecognizer){
         print("\n selectCard ")
         switch recongizer.state {
             case.ended:
                 print("recongizer.view tag \(recongizer.view?.tag)")
+                if let cardTag = recongizer.view?.tag { // deselect
+                    if selected.contains(cardTag){
+                    containerView.subviews[cardTag].layer.borderColor = UIColor.black.cgColor
+                    } else if selected.count < 3  { // select a card
+                        selected.append(cardTag)
+                        containerView.subviews[cardTag].layer.borderColor = UIColor.orange.cgColor
+                    } else { // check selection
+                        for card in selected {
+                               containerView.subviews[card].layer.borderColor = UIColor.black.cgColor
+                        }
+                        if deck.matched(index: selected) {
+                            print("matched")
+                            score += 1
+                        }
+                       selected.removeAll()
+                        paintCards()
+                    }
+                }// end if cardtag
+            
+            
             default: break
-        }
+        }// end switch
     } // end sellectedCard()
     
     
@@ -83,8 +113,6 @@ class ViewController: UIViewController {
                 cardView.tag = i
             } // end if
         } // end for
-        
-        containerView.subviews[0].layer.borderColor = UIColor.green.cgColor // test
     } // end paintCards()
 
 }// EOF
