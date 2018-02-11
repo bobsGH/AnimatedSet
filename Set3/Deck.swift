@@ -55,13 +55,14 @@ struct Deck {
     
         
         if shadeSet.ok && colorSet.ok && symbolSet.ok && pipSet.ok {
+            print("all ok")
             for i in sortedIndex.sorted(by: >)  {
                 cardsInPlay.remove(at: i) // if matched
             }
             if sorted.count > 2 { draw(3) }
             return true
         }
-        return true // false
+        return false // false
     }
     
     
@@ -71,7 +72,7 @@ struct Deck {
                 var ok: Bool {
                     if self.count == 1 || self.count == 3 {
                         return true
-                    } else {return true}  // false
+                    } else {return false}  // false
                 }
             }
             

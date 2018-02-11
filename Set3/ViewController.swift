@@ -35,6 +35,14 @@ class ViewController: UIViewController {
 
   
     @IBAction func newGame(_ sender: UIButton) {
+        deck.sorted.removeAll()
+        deck.cardsInPlay.removeAll()
+        
+        score = 0
+        deck.makeDeck()
+       // roundCornors()
+        deck.draw(12)
+        paintCards()
     }
     
     
@@ -73,7 +81,7 @@ class ViewController: UIViewController {
                                containerView.subviews[card].layer.borderColor = UIColor.black.cgColor
                         }
                         if deck.matched(index: selected) {
-                            print("matched")
+                            print("matched \(selected)")
                             score += 1
                         }
                        selected.removeAll()
