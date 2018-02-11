@@ -106,11 +106,7 @@ class CardView: UIView {
                                     path.stroke()
                                 } // end if stripPath
             }// end switch on pip
-            
         } // end if card != nil
-        
-        
-      
     } // end draw()
     
     
@@ -148,7 +144,6 @@ class CardView: UIView {
         var trianglePath = UIBezierPath()
         
         let triangleStart = CGPoint(x: bounds.midX, y: bounds.midY - radius )
-        
         trianglePath.move(to: triangleStart)
         trianglePath.addLine(to: CGPoint(x: triangleStart.x + radius, y: squareStart.y + radius * 2.0 ))
         trianglePath.addLine(to: CGPoint(x: triangleStart.x - radius, y: squareStart.y + radius * 2.0 ))

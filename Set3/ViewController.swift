@@ -37,10 +37,8 @@ class ViewController: UIViewController {
     @IBAction func newGame(_ sender: UIButton) {
         deck.sorted.removeAll()
         deck.cardsInPlay.removeAll()
-        
         score = 0
         deck.makeDeck()
-       // roundCornors()
         deck.draw(12)
         paintCards()
     }
@@ -69,7 +67,6 @@ class ViewController: UIViewController {
         print("\n selectCard ")
         switch recongizer.state {
             case.ended:
-                print("recongizer.view tag \(recongizer.view?.tag)")
                 if let cardTag = recongizer.view?.tag { // deselect
                     if selected.contains(cardTag){
                     containerView.subviews[cardTag].layer.borderColor = UIColor.black.cgColor
@@ -84,11 +81,10 @@ class ViewController: UIViewController {
                             print("matched \(selected)")
                             score += 1
                         }
-                       selected.removeAll()
+                        selected.removeAll()
                         paintCards()
                     }
                 }// end if cardtag
-            
             
             default: break
         }// end switch
@@ -106,7 +102,7 @@ class ViewController: UIViewController {
         
         for i in 0..<deck.cardsInPlay.count {
             
-            tapReconizer = UITapGestureRecognizer(target: self, action: #selector(selectCard(recongizer: )) ) // for each cardView
+            tapReconizer = UITapGestureRecognizer(target: self, action: #selector(selectCard(recongizer: )) ) // each cardView
             var  cardView = CardView()
             cardView = CardView()
             if let cardRect = grid[i]{
