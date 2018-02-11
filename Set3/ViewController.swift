@@ -64,7 +64,6 @@ class ViewController: UIViewController {
     var selected: [Int] = []
     
     @objc func selectCard(recongizer: UITapGestureRecognizer){
-        print("\n selectCard ")
         switch recongizer.state {
             case.ended:
                 if let cardTag = recongizer.view?.tag { // deselect
@@ -78,7 +77,6 @@ class ViewController: UIViewController {
                                containerView.subviews[card].layer.borderColor = UIColor.black.cgColor
                         }
                         if deck.matched(index: selected) {
-                            print("matched \(selected)")
                             score += 1
                         }
                         selected.removeAll()
@@ -93,7 +91,7 @@ class ViewController: UIViewController {
     
     func paintCards() {
        
-      var subViews = containerView.subviews
+      let subViews = containerView.subviews
         for sub in subViews {
             sub.removeFromSuperview()
         }

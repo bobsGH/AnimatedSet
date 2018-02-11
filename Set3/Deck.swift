@@ -55,7 +55,6 @@ struct Deck {
     
         
         if shadeSet.ok && colorSet.ok && symbolSet.ok && pipSet.ok {
-            print("all ok")
             for i in sortedIndex.sorted(by: >)  {
                 cardsInPlay.remove(at: i) // if matched
             }

@@ -32,7 +32,7 @@ class CardView: UIView {
     override func draw(_ rect: CGRect) {
         // **************** Drawing code **********************
         
-        var topTransform = CGAffineTransform(translationX: 0.0, y: bounds.height * topOffset )
+        let topTransform = CGAffineTransform(translationX: 0.0, y: bounds.height * topOffset )
         let bottomTransform = CGAffineTransform(translationX: 0.0, y: bounds.height * bottomOffset * 2 )
        
         if card != nil {
@@ -111,7 +111,7 @@ class CardView: UIView {
     
     
     func makeCirclePath() -> UIBezierPath {
-        var circlePath = UIBezierPath()
+        let circlePath = UIBezierPath()
         
         let centerPoint = CGPoint(x: bounds.midX, y: bounds.midY)
         circlePath.addArc(withCenter: centerPoint ,
@@ -130,7 +130,7 @@ class CardView: UIView {
     
     
     func makeSquarePath() -> UIBezierPath {
-        var squarePath = UIBezierPath()
+        let squarePath = UIBezierPath()
         
         squarePath.move(to: squareStart)
         squarePath.addLine(to: CGPoint(x: squareStart.x + radius * 2.0, y: squareStart.y ))
@@ -141,7 +141,7 @@ class CardView: UIView {
     }
     
     func makeTrianglePath() -> UIBezierPath {
-        var trianglePath = UIBezierPath()
+        let trianglePath = UIBezierPath()
         
         let triangleStart = CGPoint(x: bounds.midX, y: bounds.midY - radius )
         trianglePath.move(to: triangleStart)
@@ -156,7 +156,7 @@ class CardView: UIView {
     func addStripPath() -> UIBezierPath {
         var y = bounds.minY
         let space: CGFloat = radius / noStrips
-        var stripPath = UIBezierPath()
+        let stripPath = UIBezierPath()
         
         while y < bounds.maxY {  
             stripPath.move(to: CGPoint(x: bounds.minX, y: y ))
