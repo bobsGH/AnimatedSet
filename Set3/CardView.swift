@@ -29,14 +29,8 @@ class CardView: UIView {
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
     
-    
-    
-    
-    
     override func draw(_ rect: CGRect) {
         // **************** Drawing code **********************
-        
-        
         
         let topTransform = CGAffineTransform(translationX: 0.0, y: bounds.height * topOffset )
         let bottomTransform = CGAffineTransform(translationX: 0.0, y: bounds.height * bottomOffset * 2 )
@@ -65,52 +59,52 @@ class CardView: UIView {
             }
             
             switch card.cardPip {
-                case .one:  path.stroke()
-                            if fill { path.fill()}
-                            if stripPath != nil {
-                                path.addClip()
-                                stripPath.stroke()
-                            }
+            case .one:  path.stroke()
+                if fill { path.fill()}
+                if stripPath != nil {
+                    path.addClip()
+                    stripPath.stroke()
+                }
                 
-                case .two:   path.apply(topTransform)
-                         path.stroke()
-                         if fill { path.fill()}
+            case .two:   path.apply(topTransform)
+                path.stroke()
+                if fill { path.fill()}
             
-                        let save = path.cgPath
-                        path.apply(bottomTransform)
-                        path.stroke()
+                let save = path.cgPath
+                path.apply(bottomTransform)
+                path.stroke()
             
-                        if fill { path.fill()}
-                        if stripPath != nil {
-                               let new = UIBezierPath(cgPath: save)
-                               path.append(new)
-                                path.addClip()
-                                stripPath.stroke()
-                                path.stroke()
-                        }
+                if fill { path.fill()}
+                if stripPath != nil {
+                    let new = UIBezierPath(cgPath: save)
+                    path.append(new)
+                    path.addClip()
+                    stripPath.stroke()
+                    path.stroke()
+                }
                 
-                case .three:  path.stroke()
-                                if fill { path.fill()}
-                                let middle = path.cgPath
-                
-                                path.apply(topTransform)
-                                let top = path.cgPath
-                                path.stroke()
-                                if fill { path.fill()}
-                
-                                path.apply(bottomTransform)
-                                path.stroke()
-                                if fill { path.fill()}
-                
-                                if stripPath != nil {
-                                    let newTop = UIBezierPath(cgPath: top)
-                                    path.append(newTop)
-                                    let newMiddle = UIBezierPath(cgPath: middle)
-                                    path.append(newMiddle)
-                                    path.addClip()
-                                    stripPath.stroke()
-                                    path.stroke()
-                                } // end if stripPath
+            case .three:  path.stroke()
+                if fill { path.fill()}
+                let middle = path.cgPath
+            
+                path.apply(topTransform)
+                let top = path.cgPath
+                path.stroke()
+                if fill { path.fill()}
+            
+                path.apply(bottomTransform)
+                path.stroke()
+                if fill { path.fill()}
+            
+                if stripPath != nil {
+                    let newTop = UIBezierPath(cgPath: top)
+                    path.append(newTop)
+                    let newMiddle = UIBezierPath(cgPath: middle)
+                    path.append(newMiddle)
+                    path.addClip()
+                    stripPath.stroke()
+                    path.stroke()
+                } // end if stripPath
             }// end switch on pip
         } // end if card != nil
     } // end draw()
@@ -125,6 +119,7 @@ class CardView: UIView {
             startAngle: 0,
             endAngle: CGFloat.pi * 2,
             clockwise: true)
+        
         return circlePath
     }
     

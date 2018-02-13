@@ -25,7 +25,6 @@ class ViewController: UIViewController {
   
 
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-
         grid.frame = containerView.safeAreaLayoutGuide.layoutFrame
         paintCards()
     }
@@ -98,7 +97,6 @@ class ViewController: UIViewController {
     
     
     func paintCards() {
-       
       let subViews = containerView.subviews
         for sub in subViews {
             sub.removeFromSuperview()

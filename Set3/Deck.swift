@@ -52,7 +52,6 @@ struct Deck {
             shadeSet.insert(cardsInPlay[i].cardShade)
             pipSet.insert(cardsInPlay[i].cardPip)
         }
-    
         
         if shadeSet.ok && colorSet.ok && symbolSet.ok && pipSet.ok {
             for i in sortedIndex.sorted(by: >)  {
