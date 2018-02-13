@@ -26,34 +26,11 @@ class ViewController: UIViewController {
 
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
 
-           print("\nview frame \(view.frame), container view bound \(containerView.bounds) ")
-        print("safeArea \( containerView.safeAreaLayoutGuide)\n")
         grid.frame = containerView.safeAreaLayoutGuide.layoutFrame
-        
-        containerView.setNeedsDisplay()
-        containerView.setNeedsLayout()
-         paintCards()
-      //  print("after \nview frame \(view.frame), container view bound \(containerView.bounds) \n")
-        
-     //   view.layoutIfNeeded()
-    //    print("trait after \(containerView.bounds)\n")
-     //   paintCards()
-//        grid.frame = containerView.bounds
-       // print("bounds \(containerView.frame)")
-    //    paintCards()
-       // containerView.setNeedsDisplay()
-       // containerView.setNeedsLayout()
-      //  view.setNeedsDisplay()
-     //   view.setNeedsLayout()
-        
+        paintCards()
     }
 
-//    override func viewLayoutMarginsDidChange() {
-//        print("viewlayouMargings \(containerView.bounds)")
-//    }
-    
     var deck = Deck()
-    
     
     @IBOutlet weak var scoreLabel: UILabel!
     
@@ -83,19 +60,8 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var containerView: UIView!
     
-    
-    
-//    override func viewSafeAreaInsetsDidChange() {
-//        print("\nviewSafeAre \(containerView.frame)\n)")
-//        view.setNeedsDisplay()
-//        view.setNeedsLayout()
-//        paintCards()
-//    }
-    
 
     var grid = Grid(layout: Grid.Layout.aspectRatio(0.7) )  // 0.7
-    
-    
     
     func roundCornor(_ object: UIView) {
         object.layer.backgroundColor = UIColor.white.cgColor
