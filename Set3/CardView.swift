@@ -29,8 +29,14 @@ class CardView: UIView {
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
     
+    
+    
+    
+    
     override func draw(_ rect: CGRect) {
         // **************** Drawing code **********************
+        
+        
         
         let topTransform = CGAffineTransform(translationX: 0.0, y: bounds.height * topOffset )
         let bottomTransform = CGAffineTransform(translationX: 0.0, y: bounds.height * bottomOffset * 2 )
@@ -168,93 +174,4 @@ class CardView: UIView {
     
 } // EOF
 
-/*
- 
- //  var vc: UIViewController!
- // var tapRec: UITapGestureRecognizer!
- 
- //self.addGestureRecognizer()
- //  print("tao rec in card view\(tapRec)")
- 
- // addGestureRecognizer(tapRec)
- */
 
-
-//    func addStrip() {
-//        if strip {
-//           // print("strip")
-//            addStripPath()
-//            path.addClip()
-//           // path.stroke()
-//
-//        }
-//}
-
-//var top = path!
-// var bottom = path!
-
-// path.apply(topTransform)
-// top.stroke()
-//  bottom.apply(bottomTransform)
-//bottom.stroke()
-//  top.append(bottom)
-//    top.stroke()
-//                            path.removeAllPoints()
-//                            path = top
-//                            path.append(bottom!)
-//                            path.stroke()
-//                            if fill { path.fill()}
-
-// path.apply(topTransform)
-//  path.stroke()
-// if fill { path.fill()}
-// if stripPath != nil {
-//  path.addClip()
-//  stripPath.stroke()
-// }
-
-
-//copy?.apply(bottomTransform)
-//path.append(copy!)
-// path.stroke()
-
-
-
-//                            if stripPath != nil {
-//                                path.addClip()
-//                                stripPath.stroke()
-//                            }
-
-/*
- func paintCard() {
- let centerPoint = CGPoint(x: bounds.midX, y: bounds.midY )
- // test code
- circlePath.addArc(withCenter: centerPoint,
- radius: 20 ,   // bounds.width
- startAngle: 0,
- endAngle: CGFloat.pi * 2,
- clockwise: true)
- 
- if path != nil {
- if fill {   path.fill() }
- path.stroke()
- }
- }
- //end test code
- */
-
-
-
-/*
- let circlePath = UIBezierPath()
- var centerPoint = CGPoint(x: bounds.midX, y: bounds.midY )
- circlePath.addArc(withCenter: centerPoint,
- radius: 10 ,   // bounds.width
- startAngle: 0,
- endAngle: CGFloat.pi * 2,
- clockwise: true)
- circlePath.stroke()
- 
- print("pipColor \(card.cardColor)\n")
- 
- */

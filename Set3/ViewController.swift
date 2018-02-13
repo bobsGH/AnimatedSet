@@ -15,15 +15,45 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         deck.makeDeck()
         deck.draw(12)
-        grid.frame = containerView.bounds
-        paintCards()
+      //  grid.frame = containerView.bounds
+      //  paintCards()
         score = 0
+        
+        
+        
     } // viewDidLoad
-    
+  
+
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+
+           print("\nview frame \(view.frame), container view bound \(containerView.bounds) ")
+        print("safeArea \( containerView.safeAreaLayoutGuide)\n")
+        grid.frame = containerView.safeAreaLayoutGuide.layoutFrame
+        
+        containerView.setNeedsDisplay()
+        containerView.setNeedsLayout()
+         paintCards()
+      //  print("after \nview frame \(view.frame), container view bound \(containerView.bounds) \n")
+        
+     //   view.layoutIfNeeded()
+    //    print("trait after \(containerView.bounds)\n")
+     //   paintCards()
+//        grid.frame = containerView.bounds
+       // print("bounds \(containerView.frame)")
+    //    paintCards()
+       // containerView.setNeedsDisplay()
+       // containerView.setNeedsLayout()
+      //  view.setNeedsDisplay()
+     //   view.setNeedsLayout()
+        
+    }
+
+//    override func viewLayoutMarginsDidChange() {
+//        print("viewlayouMargings \(containerView.bounds)")
+//    }
     
     var deck = Deck()
     
-
     
     @IBOutlet weak var scoreLabel: UILabel!
     
@@ -51,9 +81,21 @@ class ViewController: UIViewController {
     
     var tapReconizer: UITapGestureRecognizer!
     
-    @IBOutlet weak var containerView: UIView! // {
+    @IBOutlet weak var containerView: UIView!
+    
+    
+    
+//    override func viewSafeAreaInsetsDidChange() {
+//        print("\nviewSafeAre \(containerView.frame)\n)")
+//        view.setNeedsDisplay()
+//        view.setNeedsLayout()
+//        paintCards()
+//    }
+    
 
-    var grid = Grid(layout: Grid.Layout.aspectRatio(0.7) )
+    var grid = Grid(layout: Grid.Layout.aspectRatio(0.7) )  // 0.7
+    
+    
     
     func roundCornor(_ object: UIView) {
         object.layer.backgroundColor = UIColor.white.cgColor
@@ -118,81 +160,4 @@ class ViewController: UIViewController {
     } // end paintCards()
 
 }// EOF
-
-/*
- 
- //        didSet {
- //
- // //           tapReconizer = UITapGestureRecognizer(target: self, action: #selector(selectCard(recongizer: )) )
- //
- //       //     containerView.addGestureRecognizer(tapReconizer)  // works ----------
- //
- //        } // end didset
- //    } // end containerView
- //
- 
- containerView.subviews[3].addGestureRecognizer(tapReconizer)
- containerView.subviews[0].addGestureRecognizer(tapReconizer)
- 
- // print(" card in play count \(deck.cardsInPlay.count), card \(deck.cardsInPlay[1])")
- // view.setNeedsDisplay()
- 
- //  containerView.didAddSubview(<#T##subview: UIView##UIView#>)
- 
- 
-        // print("subViews \(containerView.subviews[1])")   //
- 
- //  cardView.addGestureRecognizer(tapReconizer)  //
- // containerView.subviews[i].addGestureRecognizer(tapReconizer)
- //  cardView.tapRec = self.tapReconizer
-              //  containerView.subviews[i].addGestureRecognizer(tapReconizer)
- 
- //  cardView.addGestureRecognizer(tapReconizer)
- //      containerView.subviews[i].addGestureRecognizer(tapReconizer)
- 
- // test
- // let tapReconizer = UITapGestureRecognizer(target: self, action: #selector(selectCard) )
- //let tapReconizer = UIGestureRecognizer(target: self, action: #selector(selectCard) )
- 
- // test
- func tap(){
- print("cardview taped")
- }
- 
- print("subview.count \( containerView.subviews.count)")
- for cv in containerView.subviews {
- print("tag \(cv.tag)")
- }
- //            cv.isUserInteractionEnabled = true
- //            cv.addGestureRecognizer(tapReconizer)
- 
- 
- func tstGrid() {
- let gridN = grid.cellCount
- let grid2 = grid[2]
- let dimension = grid.dimensions  // rowCount, column dount
- let cellSize = grid.cellSize
- print("grid.cellCount \(gridN) \n grid2  \(grid2) \n grid.dimension \(dimension) \n grid.cellSize \(cellSize)")
- 
- var containerSize = containerView.frame
- //print("container size \(containerSize)")
- 
- // print("grid2 \(grid2)")
- 
- let cardSubView = CardView()
- var cardRect = CGRect(x: 108.0, y: 0.0, width: 50.0, height: 71.4)
- //roundCornor(cardSubView)
- 
- cardSubView.frame = cardRect
- cardSubView.backgroundColor = .yellow
- 
- roundCornor(score)
- 
- // self.view = view
- // view.addSubview(cardSubView)
- containerView.addSubview(cardSubView)
- }
- 
- 
- */
 
